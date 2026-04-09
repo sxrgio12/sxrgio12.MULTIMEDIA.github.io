@@ -1,0 +1,172 @@
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROGRAMACIÓN - CODINGIA</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f4f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      margin: 1rem;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .option {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s ease;
+    }
+
+    .option:hover {
+      background: #eaeaea;
+    }
+
+    .option input {
+      margin-right: 0.5rem;
+      transform: scale(1.2);
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #resultado {
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    #resultado.correcto {
+      color: green;
+    }
+
+    #resultado.incorrecto {
+      color: red;
+    }
+
+    .estadisticas {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: #555;
+      text-align: center;
+    }
+
+    .question-item {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .question-item h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .question-item ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .question-item li {
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .question-item li.correct {
+      background: #d4edda;
+    }
+
+    /* verde suave */
+    .question-item li.hidden {
+      display: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    #reiniciar {
+      background: #dc3545;
+      margin-top: 0.5rem;
+    }
+
+    #reiniciar:hover {
+      background: #a71d2a;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="display:flex; flex-direction: column">
+    <div class="card">
+      <h2 id="pregunta">Pregunta</h2>
+      <div id="opciones"><label class="option"><input type="radio" name="opcion" value=""
+            data-texto="class AlmacenElementos <T> {//Resto del código }">Opción 1</label><label class="option"><input type="radio" name="opcion" value=""
+            data-texto="class AlmacenElementos<ArticuloA> {//Resto del código}">Opxión 2</label><label class="option"><input type="radio" name="opcion" value=""
+            data-texto="class AlmacenElementos{//Resto del código}">Opción 3</label>
+      </div>
+      <button onclick="siguiente()" style="display: inline-block;">Corregir</button>
+      <button id="reiniciar" onclick="reiniciarEstadisticas()">Reiniciar estadísticas</button>
+      <div id="resultado"></div>
+      <div class="estadisticas" id="estadisticas">✅ Aciertos: 0 | ❌ Fallos: 0 | 🎯 Porcentaje: 0% | 📋 Total: 0
+        preguntas</div>
+    </div>
+    <div class="card">
+      <h2>Listado de preguntas</h2>
+      <input type="text" id="search" placeholder="Busca aquí…"
+        style="width:100%; padding:0.8rem; margin-bottom:1rem; border-radius:6px; border:1px solid #ccc;">
+      <div id="question-list">
+
+
+      </div>
+    </div>
+  </div>
+  <script src="./js.js"></script>
+
+</body>
+
+</html>
